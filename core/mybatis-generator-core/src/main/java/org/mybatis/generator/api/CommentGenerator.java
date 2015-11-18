@@ -84,19 +84,6 @@ public interface CommentGenerator {
             IntrospectedTable introspectedTable);
 
     /**
-     * Adds the class comment.
-     *
-     * @param innerClass
-     *            the inner class
-     * @param introspectedTable
-     *            the introspected table
-     * @param markAsDoNotDelete
-     *            the mark as do not delete
-     */
-    public void addClassComment(InnerClass innerClass,
-            IntrospectedTable introspectedTable, boolean markAsDoNotDelete);
-
-    /**
      * Adds the enum comment.
      *
      * @param innerEnum

@@ -15,14 +15,14 @@
  */
 package org.mybatis.generator.api;
 
+import org.mybatis.generator.config.Context;
+
 import static org.mybatis.generator.internal.util.EqualsUtil.areEqual;
 import static org.mybatis.generator.internal.util.HashCodeUtil.SEED;
 import static org.mybatis.generator.internal.util.HashCodeUtil.hash;
 import static org.mybatis.generator.internal.util.JavaBeansUtil.getCamelCaseString;
 import static org.mybatis.generator.internal.util.StringUtility.composeFullyQualifiedTableName;
 import static org.mybatis.generator.internal.util.StringUtility.stringHasValue;
-
-import org.mybatis.generator.config.Context;
 
 /**
  * The Class FullyQualifiedTable.
@@ -51,6 +51,10 @@ public class FullyQualifiedTable {
 
     /** The domain object name. */
     private String domainObjectName;
+
+	private String dmoSuffix;
+
+	private String daoSuffix;
     
     /** The domain object sub package. */
     private String domainObjectSubPackage;
@@ -107,7 +111,7 @@ public class FullyQualifiedTable {
      */
     public FullyQualifiedTable(String introspectedCatalog,
             String introspectedSchema, String introspectedTableName,
-            String domainObjectName, String alias,
+            String domainObjectName,String dmoSuffix,String daoSuffix, String alias,
             boolean ignoreQualifiersAtRuntime, String runtimeCatalog,
             String runtimeSchema, String runtimeTableName,
             boolean delimitIdentifiers, Context context) {
@@ -129,6 +133,9 @@ public class FullyQualifiedTable {
                 this.domainObjectSubPackage = domainObjectName.substring(0, index);
             }
         }
+
+		this.dmoSuffix = dmoSuffix;
+		this.daoSuffix = daoSuffix;
 
         if (alias == null) {
             this.alias = null;
@@ -264,6 +271,20 @@ public class FullyQualifiedTable {
             return getCamelCaseString(introspectedTableName, true);
         }
     }
+
+	public String getDmoSuffix(){
+		if(stringHasValue(dmoSuffix)){
+			return dmoSuffix;
+		}
+		return "";
+	}
+
+	public String getDaoSuffix() {
+		if(stringHasValue(daoSuffix)){
+			return daoSuffix;
+		}
+		return "Mapper";
+	}
 
     /* (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)

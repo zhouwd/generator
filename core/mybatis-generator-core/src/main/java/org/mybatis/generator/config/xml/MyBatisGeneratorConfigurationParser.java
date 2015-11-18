@@ -13,37 +13,22 @@
  */
 package org.mybatis.generator.config.xml;
 
-import static org.mybatis.generator.internal.util.StringUtility.isTrue;
-import static org.mybatis.generator.internal.util.StringUtility.stringHasValue;
-import static org.mybatis.generator.internal.util.messages.Messages.getString;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Properties;
 
-import org.mybatis.generator.config.ColumnOverride;
-import org.mybatis.generator.config.ColumnRenamingRule;
-import org.mybatis.generator.config.CommentGeneratorConfiguration;
-import org.mybatis.generator.config.Configuration;
-import org.mybatis.generator.config.Context;
-import org.mybatis.generator.config.GeneratedKey;
-import org.mybatis.generator.config.IgnoredColumn;
-import org.mybatis.generator.config.JDBCConnectionConfiguration;
-import org.mybatis.generator.config.JavaClientGeneratorConfiguration;
-import org.mybatis.generator.config.JavaModelGeneratorConfiguration;
-import org.mybatis.generator.config.JavaTypeResolverConfiguration;
-import org.mybatis.generator.config.ModelType;
-import org.mybatis.generator.config.PluginConfiguration;
-import org.mybatis.generator.config.PropertyHolder;
-import org.mybatis.generator.config.SqlMapGeneratorConfiguration;
-import org.mybatis.generator.config.TableConfiguration;
+import org.mybatis.generator.config.*;
 import org.mybatis.generator.exception.XMLParserException;
 import org.mybatis.generator.internal.ObjectFactory;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import static org.mybatis.generator.internal.util.StringUtility.isTrue;
+import static org.mybatis.generator.internal.util.StringUtility.stringHasValue;
+import static org.mybatis.generator.internal.util.messages.Messages.getString;
 
 /**
  * This class parses configuration files into the new Configuration API
@@ -220,6 +205,8 @@ public class MyBatisGeneratorConfigurationParser {
         String schema = attributes.getProperty("schema"); //$NON-NLS-1$
         String tableName = attributes.getProperty("tableName"); //$NON-NLS-1$
         String domainObjectName = attributes.getProperty("domainObjectName"); //$NON-NLS-1$
+		String daoSuffix=attributes.getProperty("daoSuffix");
+		String dmoSuffix=attributes.getProperty("dmoSuffix");
         String alias = attributes.getProperty("alias"); //$NON-NLS-1$
         String enableInsert = attributes.getProperty("enableInsert"); //$NON-NLS-1$
         String enableSelectByPrimaryKey = attributes
@@ -261,6 +248,15 @@ public class MyBatisGeneratorConfigurationParser {
         if (stringHasValue(domainObjectName)) {
             tc.setDomainObjectName(domainObjectName);
         }
+
+
+		if(stringHasValue(dmoSuffix)){
+			tc.setDmoSuffix(dmoSuffix);
+		}
+
+		if(stringHasValue(daoSuffix)){
+			tc.setDaoSuffix(daoSuffix);
+		}
 
         if (stringHasValue(alias)) {
             tc.setAlias(alias);
