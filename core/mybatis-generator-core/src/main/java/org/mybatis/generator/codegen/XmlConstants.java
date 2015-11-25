@@ -20,7 +20,7 @@ package org.mybatis.generator.codegen;
  */
 public class XmlConstants {
 
-    /**
+	/**
      * Utility Class, no instances
      */
     private XmlConstants() {
@@ -48,6 +48,13 @@ public class XmlConstants {
     public static final String IBATOR_CONFIG_PUBLIC_ID = "-//Apache Software Foundation//DTD Apache iBATIS Ibator Configuration 1.0//EN"; //$NON-NLS-1$
 
     public static final String MYBATIS_GENERATOR_CONFIG_SYSTEM_ID = "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"; //$NON-NLS-1$
+	public static final String MYBATIS_GENERATOR_CONFIG_PUBLIC_ID = "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"; //$NON-NLS-1$
+	public static final String MYBATIS_GENERATOR_CONFIG_PUBLIC_ID_1_0_DTD = "org/mybatis/generator/config/xml/mybatis-generator-config_1_0.dtd";
 
-    public static final String MYBATIS_GENERATOR_CONFIG_PUBLIC_ID = "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"; //$NON-NLS-1$
+	/**
+	 * zhouwd extend of 1_0.dtd. Please look find these field usages.
+	 */
+    public static final String MYBATIS_GENERATOR_CONFIG_SYSTEM_ID_1_3 = "http://mybatis.org/dtd/mybatis-generator-config_1_3.dtd"; //$NON-NLS-1$
+    public static final String MYBATIS_GENERATOR_CONFIG_PUBLIC_ID_1_3 = "-//mybatis.org//DTD MyBatis Generator Configuration 1.3//EN"; //$NON-NLS-1$
+	public static final String MYBATIS_GENERATOR_CONFIG_PUBLIC_ID_1_3_DTD = "org/mybatis/generator/config/xml/mybatis-generator-config_1_3.dtd";
 }

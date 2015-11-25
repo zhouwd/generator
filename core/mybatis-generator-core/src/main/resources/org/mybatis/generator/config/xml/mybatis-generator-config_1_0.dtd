@@ -146,8 +146,6 @@
   tableName CDATA #REQUIRED
   alias CDATA #IMPLIED
   domainObjectName CDATA #IMPLIED
-  dmoSuffix CDATA #IMPLIED
-  daoSuffix CDATA #IMPLIED
   enableInsert CDATA #IMPLIED
   enableSelectByPrimaryKey CDATA #IMPLIED
   enableSelectByExample CDATA #IMPLIED
